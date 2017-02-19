@@ -1,0 +1,161 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<head>
+    <title>같이가자 하와이 - 유럽 글 목록</title>
+</head>
+
+    <div class="site">
+        <header class="noo-page-heading" style="background: rgba(67, 67, 67, 0.55);"> 
+            <div class="container-boxed max" style="position: relative; z-index: 1;">
+                <div class="page-heading-info ">
+                    <h1 class="page-title">
+                        유럽
+                    </h1>
+                </div>
+                <div class="page-sub-heading-info">
+                </div>
+            </div>
+            <!-- /.container-boxed -->
+            <div class=" parallax" data-parallax="1" data-parallax_no_mobile="1" data-velocity="0.1" style="background-image: url(http://wp.nootheme.com/jobmonster/wp-content/themes/noo-jobmonster/assets/images/heading-bg.png); background-position: 50% 25px;"></div>
+        </header>
+        <div class="container-wrap">
+            <div class="main-content container-boxed max offset">
+                <div class="row">
+                    <div class="noo-main col-md-8" role="main">
+                        <div class="jobs posts-loop " data-paginate="loadmore">
+                            <div class="posts-loop-title">
+                                <h3>최근 게시물</h3>
+                            </div>
+                            <div class="posts-loop-content">
+                                <div class="loadmore-wrap">
+
+                                    <!--start-->
+                                    {% for post in posts %}
+                                    {% if post.country == "유럽" %}
+                                    <article class="loadmore-item noo_job post-3138 type-noo_job status-publish hentry job_category-designer job_type-full-time no-featured" data-url="http://wp.nootheme.com/jobmonster/jobs/senior-designer/">
+
+                                        <div class="loop-item-wrap">
+                                            <div class="item-featured">
+                                                <a href="http://wp.nootheme.com/jobmonster/jobs/senior-designer/" title="Senior Designer">
+                                                    <img src="{% static "etc/company-logo.png" %}" class="" alt="Drupal Company"> </a>
+                                            </div>
+                                            <div class="loop-item-content" style="width: 60% !important;float: left">
+                                                <h2 class="loop-item-title">
+											<a href="http://wp.nootheme.com/jobmonster/jobs/senior-designer/" title="Permanent link to: &quot;Senior Designer&quot;">{{ post.title }}</a>
+										</h2>
+                                                <p class="content-meta">
+                                                    <span class="job-date">
+                                                        <time class="entry-date" datetime="2015-11-10T21:47:25+00:00">
+                                                            <i class="fa fa-calendar"></i>{{ post.published_date }}
+                                                        </time>
+                                                    </span>
+                                                    <span class="job-company"> <a href="http://wp.nootheme.com/jobmonster/companies/abc-6/">Comments: {{ post.approved_comments.count }}</a></span>
+                                                </p>
+                                            </div>
+                                            <div class="show-view-more" style="float: right;">
+                                                <a class="btn btn-primary" href="{% url 'blog.views.post_detail' post_id=post.pk %}">펼쳐보기</a>
+                                            </div>
+
+                                        </div>
+                                    </article>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <!--end-->
+
+
+
+                                </div>
+                            </div>
+                            <div class="loadmore-action">
+                                <a href="http://wp.nootheme.com/jobmonster/jobs/#" class="btn btn-default btn-block btn-loadmore" title="Load More">더 불러오기</a>
+                                <div class="noo-loader loadmore-loading"><span></span><span></span><span></span><span></span><span></span></div>
+                            </div>
+                            <div class="pagination list-center"><span class="page-numbers current">1</span>
+                                <a class="page-numbers" href="http://wp.nootheme.com/jobmonster/jobs/page/2/">2</a>
+                                <a class="page-numbers" href="http://wp.nootheme.com/jobmonster/jobs/page/3/">3</a>
+                                <a class="next page-numbers" href="http://wp.nootheme.com/jobmonster/jobs/page/2/"><i class="fa fa-long-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                    <!-- /.main -->
+
+                    <div class=" noo-sidebar col-md-4 hidden-print">
+                        <div class="noo-sidebar-wrap">
+                            <div id="noo_advanced_search_widget-2" class="widget widget_noo_advanced_search_widget">
+                                <h4 class="widget-title">Search</h4>
+                                <form id="565dc468897bd_form" method="get" class="widget-advanced-search" action="http://wp.nootheme.com/jobmonster/">
+                                    <style type="text/css">
+                                        .widget-advanced-search ul li:first-child,
+                                        .widget-advanced-search ol li:first-child {
+                                            padding-top: 6px;
+                                        }
+                                    </style>
+                                    <input type="hidden" class="form-control" name="post_type" value="noo_job">
+                                    <input type="hidden" class="form-control" name="action" value="live_search">
+                                    <!-- <input type="hidden" class="form-control" name="live-search-nonce" value="" /> -->
+                                    <div class="form-group">
+                                        <label class="sr-only" for="565dc468897bd_search-keyword">keyword</label>
+                                        <input type="text" class="form-control" id="565dc468897bd_search-keyword" name="s" placeholder="keyword" value="">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-boxed-->
+        </div>
+        <!--/.container-wrap-->
+
+
+      <div class="colophon wigetized hidden-print">
+    <div class="container-boxed max">
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="text-2" class="widget widget_text">
+                    <h4 class="widget-title">같이가자 하와이</h4>
+                    <div class="textwidget"><p>회원들 끼리 이민에 필요한 정보들을 공유, 추천해줄수있는 커뮤니티 사이트 입니다.</p></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div id="text-3" class="widget widget_text">
+                    <h4 class="widget-title">CONTACT US</h4>
+                    <div class="textwidget">
+                        <p>선린 인터넷 고등학교<br>서울특별시 용산구 원효로97길 33-4 선린인터넷고등학교<br>
+                            dropzonekr@iwop.net<br>parkgeonhu@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-boxed -->
+</div>
+<!-- /.colophon.wigetized -->
+
+
+<footer class="colophon site-info hidden-print">
+    <div class="container-full">
+        <div class="footer-more">
+            <div class="container-boxed">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="noo-bottom-bar-content">
+                            <p>© 2015 SUNRIN. Designed with by Geonhu, Juhyeon
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-boxed -->
+</footer>
+        <!-- /.colophon.site-info -->
+    </div>
+    <!-- /#top.site -->
+
+</html>
+{% endblock %}

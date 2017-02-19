@@ -1,0 +1,39 @@
+{% extends "blog/base.html" %} {% load staticfiles %} {% block content %}
+
+<header class="noo-page-heading" style="background: rgba(67, 67, 67, 0.55);">
+    <div class="container-boxed max" style="position: relative; z-index: 1;">
+        <div class="page-heading-info ">
+            <h1 class="page-title">
+                게시물에 대한 댓글쓰기
+            </h1>
+        </div>
+        <div class="page-sub-heading-info">
+        </div>
+    </div>
+    <!-- /.container-boxed -->
+    <div class=" parallax" data-parallax="1" data-parallax_no_mobile="1" data-velocity="0.1" style="background-image: url(http://wp.nootheme.com/jobmonster/wp-content/themes/noo-jobmonster/assets/images/heading-bg.png); background-position: 50% 25px;"></div>
+</header>
+
+<div class="container-wrap">
+    <div class="main-content container-boxed max offset">
+        <div class="row">
+            <div class="noo-main col-md-8" role="main">
+                <div class="jobs posts-loop " data-paginate="loadmore">
+                    <div id="panel" class="col-md-8">
+                        <form method="POST" class="post-form"> {% csrf_token %} {{ form.as_p }}
+                            <button type="submit" class="save btn btn-default">댓글 쓰기</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.main -->
+
+        </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-boxed-->
+</div>
+
+
+
+{% endblock %}

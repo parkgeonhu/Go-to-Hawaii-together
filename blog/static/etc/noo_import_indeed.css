@@ -1,0 +1,12 @@
+#noo_generate_xml {
+  cursor: pointer;
+  text-align: center;
+}
+#noo_generate_xml:hover {
+  color: #ffffff;
+}
+.noo_reload {
+  background: url('../images/reload.gif') no-repeat;
+  width: 15px;
+  height: 15px;
+}

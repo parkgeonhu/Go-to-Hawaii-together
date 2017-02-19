@@ -1,0 +1,182 @@
+{% extends "blog/base.html" %} {% load staticfiles %} {% block content %}
+
+
+<head>
+    <title>같이 가자 하와이</title>
+</head>
+
+<div class="site">
+    <div class="container-wrap">
+        <div class="main-content container-fullwidth">
+            <div class="row">
+                <div class="noo-main col-md-12" role="main">
+                    <!-- Begin The loop -->
+                    <div class="noo-vc-row row " style="">
+
+                        <div class="noo-vc-col col-md-12 ">
+                            <div class="noo-job-search-wrapper " id="job-search-slider-1">
+                                <div class="job-search-bg-image" style="background-image: url(http://wp.nootheme.com/jobmonster/wp-content/uploads/2015/03/home-slider.jpg);height: 500px"></div>
+                                <div class="job-advanced-search  column-4" style="top: 200px;">
+                                    <div class="job-search-info text-center">
+                                        <p class="search-top-title">장래를 대국적으로 생각하세요</p>
+                                        <h3 class="search-main-title">더 넓은 세계로</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="noo-vc-row row bg-primary" style="">
+
+        <div class="noo-vc-col col-md-12 ">
+            <div class="noo-vc-row row " style="">
+
+                <div class="noo-vc-col col-md-12 ">
+                    <div class="noo-step-icon clearfix">
+                        <ul class="noo-step-icon-3">
+                            <li>
+                                <span class="noo-step-icon-item">
+							<a href=""><span class="fa fa-key noo-step-icon-class"></span><span class="noo-step-icon-title">1. 회원가입을 통해 </br>시작할 수 있습니다.</span>
+                                </a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="noo-step-icon-item">
+							<a href=""><span class="fa fa-search-plus noo-step-icon-class"></span><span class="noo-step-icon-title">2. 나라별 게시판에서 </br>이민에 대한 정보를</br> 얻어 보세요</span>
+                                </a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="noo-step-icon-item">
+							<a href=""><span class="fa fa-file-text-o noo-step-icon-class"></span><span class="noo-step-icon-title">3. 당신이 가지고있는 </br>정보들을 회원들과 </br>공유해 보세요 </span>
+                                </a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-boxed max">
+        <div class="noo-vc-row row " style=" padding-top: 100px; padding-bottom: 100px;">
+
+            <div class="noo-vc-col col-md-8 col-sm-12 ">
+                <div class="jobs posts-loop  jobs-shortcode" data-paginate="nextajax">
+                    <div class="posts-loop-title">
+                        <h3>모든 최근 글</h3>
+                    </div>
+                    <div class="posts-loop-content">
+                        <div class="nextajax-wrap">
+
+                            <!--start-->
+                            {% for post in posts %}
+                            <article class="loadmore-item noo_job post-3138 type-noo_job status-publish hentry job_category-designer job_type-full-time no-featured" data-url="http://wp.nootheme.com/jobmonster/jobs/senior-designer/">
+
+                                <div class="loop-item-wrap">
+                                    <div class="item-featured">
+                                        <a href="http://wp.nootheme.com/jobmonster/jobs/senior-designer/" title="Senior Designer">
+                                            <img src="{% static "etc/company-logo.png" %}" class="" alt="Drupal Company"> </a>
+                                    </div>
+                                    <div class="loop-item-content" style="width: 60% !important;float: left">
+                                        <h2 class="loop-item-title">
+											<a href="http://wp.nootheme.com/jobmonster/jobs/senior-designer/" title="Permanent link to: &quot;Senior Designer&quot;">{{ post.title }}</a>
+										</h2>
+                                        <p class="content-meta">
+                                            <span class="job-date">
+                                                        <time class="entry-date" datetime="2015-11-10T21:47:25+00:00">
+                                                            <i class="fa fa-calendar"></i>{{ post.published_date }}
+                                                        </time>
+                                                    </span>
+                                            <span class="job-company"> <a href="http://wp.nootheme.com/jobmonster/companies/abc-6/">나라 : {{ post.country }}</a></span>
+                                        </p>
+                                    </div>
+                                    <div class="show-view-more" style="float: right;">
+                                        <a class="btn btn-primary" href="{% url 'blog.views.post_detail' post_id=post.pk %}">펼쳐보기</a>
+                                    </div>
+
+                                </div>
+                            </article>
+                            {% endfor %}
+                            <!--end-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    $("#slider_post565dcc08c6c2a").owlCarousel({
+                        autoPlay: 3000,
+                        singleItem: true,
+                        navigation: false,
+                        pagination: false,
+                    });
+                    $(".next565dcc08c6bc9").click(function () {
+                        $("#slider_post565dcc08c6c2a").trigger('owl.next');
+                    })
+                    $(".prev565dcc08c6b69").click(function () {
+                        $("#slider_post565dcc08c6c2a").trigger('owl.prev');
+                    })
+                });
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="colophon wigetized hidden-print">
+    <div class="container-boxed max">
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="text-2" class="widget widget_text">
+                    <h4 class="widget-title">같이가자 하와이</h4>
+                    <div class="textwidget"><p>회원들 끼리 이민에 필요한 정보들을 공유, 추천해줄수있는 커뮤니티 사이트 입니다.</p></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div id="text-3" class="widget widget_text">
+                    <h4 class="widget-title">CONTACT US</h4>
+                    <div class="textwidget">
+                        <p>선린 인터넷 고등학교<br>서울특별시 용산구 원효로97길 33-4 선린인터넷고등학교<br>
+                            dropzonekr@iwop.net<br>parkgeonhu@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-boxed -->
+</div>
+<!-- /.colophon.wigetized -->
+
+
+<footer class="colophon site-info hidden-print">
+    <div class="container-full">
+        <div class="footer-more">
+            <div class="container-boxed">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="noo-bottom-bar-content">
+                            <p>© 2015 SUNRIN. Designed with by Geonhu, Juhyeon
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-boxed -->
+</footer>
+<!-- /.colophon.site-info -->
+</div>
+<!-- /#top.site -->
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,401 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<head>
+    <title>{{ post.title }}</title>
+</head>
+
+<body class="single single-post postid-27 single-format-gallery  page-right-sidebar full-width-layout wpb-js-composer js-comp-ver-4.8.1 vc_responsive">
+    <div class="site">
+        <header class="noo-page-heading" style="background: rgba(67, 67, 67, 0.55);">
+            <!-- <div style="background-image: url('http://wp.nootheme.com/jobmonster/wp-content/themes/noo-jobmonster/assets/images/heading-bg.png');"></div> -->
+
+            <div class="container-boxed max" style="position: relative; z-index: 1;">
+                <div class="page-heading-info ">
+                    <h1 class="page-title">{{ post.title }}</h1>
+                </div>
+                <div class="page-sub-heading-info">
+                    <p class="content-meta">
+                        <span>
+<i class="fa fa-pencil"></i> 
+<a href="http://wp.nootheme.com/jobmonster/author/admin/" title="Posts by John Doe" rel="author">{{ post.author }}</a>
+</span>
+                        <span>
+<time class="entry-date" datetime="2015-01-19T04:09:55+00:00">
+<i class="fa fa-calendar"></i> 
+Jan 19, 2015
+</time>
+</span>
+                        <span><a href="http://wp.nootheme.com/jobmonster/career-fair-2015-over-500-jobs-from-great-employer/#comments" title="View all comments on: “Career Fair 2015: Over 500 Jobs From Great Employers”" class="meta-comments"><i class="fa fa-comments"></i> Comments: {{ post.approved_comments.count }}</a></span>
+                        
+                    </p>
+                </div>
+            </div>
+            <!-- /.container-boxed -->
+            <div class=" parallax" data-parallax="1" data-parallax_no_mobile="1" data-velocity="0.1" style="background-image: url(http://wp.nootheme.com/jobmonster/wp-content/themes/noo-jobmonster/assets/images/heading-bg.png); background-position: 50% 25px;"></div>
+        </header>
+        <div class="container-boxed max offset main-content">
+            <div class="row">
+                <div class="noo-main col-md-8" role="main">
+
+                    <article id="post-27" class="post-27 post type-post status-publish format-gallery has-post-thumbnail hentry category-news tag-blog tag-career tag-jobmonster tag-news post_format-post-format-gallery has-featured">
+                        <div class="content-wrap">
+                            <div class="content">
+                                <p>{{ post.text }}</p>
+                            </div>
+                        </div>
+                        <div class="content-left">
+                            <div class="author-bio">
+                                <div class="author-avatar">
+                                    <img alt="" src="http://2.gravatar.com/avatar/5e0a5fb45692f5ec26e7471ce9a77636?s=95&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5e0a5fb45692f5ec26e7471ce9a77636?s=190&amp;d=mm&amp;r=g 2x" class="avatar avatar-95 photo" height="95" width="95"> </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- /#post- -->
+
+                    <div id="comments" class="comments-area">
+                        <div class="comments-wrap">
+                            <h2 class="comments-title"><i class="fa fa-comments"></i>  댓글 수 : {{ post.approved_comments.count }}</h2>
+                            <ol class="comments-list">
+                                <!--커멘트 시작-->
+                                
+                                {% for comment in post.comments.all %}
+                                <li id="li-comment-7" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
+                                    
+                                    <div class="comment-wrap">
+                                        <div class="comment-img">
+                                            <img alt="" src="http://2.gravatar.com/avatar/5e0a5fb45692f5ec26e7471ce9a77636?s=80&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5e0a5fb45692f5ec26e7471ce9a77636?s=130&amp;d=mm&amp;r=g 2x" class="avatar avatar-65 photo" height="65" width="65"> </div>
+                                        <article id="comment-7" class="comment-block">
+                                            <header class="comment-header">
+                                                <cite class="comment-author">{{ comment.author }} 
+                                                    <span class="ispostauthor">
+                                                        댓글 작성자
+                                                    </span>
+												</cite>
+                                                <a href="{% url "comment_remove" pk=comment.pk %}"><i class="fa fa-times"></i></a>
+
+                                                <div class="comment-meta">
+                                                    <span class="comment-edit">
+															</span>
+                                                </div>
+                                            </header>
+                                            <section class="comment-content">
+                                                <p>{{ comment.text|linebreaks }}</p>
+                                            </section>
+                                        </article>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                                <!-- 커멘트 끝 -->
+
+                                <!-- /.comments-list -->
+
+
+                        </div>
+
+
+                        <div id="respond-wrap">
+                            <div id="respond" class="comment-respond">
+                                <h3 id="reply-title" class="comment-reply-title"><span>당신의 생각을 적어주세요</span></h3>
+                                
+                                
+                                <!--오후 6시 33분-->
+                                <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}"> 댓글 달기</a>
+                                <!--오후 6시 33분 끝-->
+                                
+                                
+                            </div>
+                            <!-- #respond -->
+                        </div>
+
+                    </div>
+                    <!-- /#comments.comments-area -->
+                </div>
+
+                <div class=" noo-sidebar col-md-4 hidden-print">
+                    <div class="noo-sidebar-wrap">
+                        <div id="categories-2" class="widget widget_categories">
+                            <h4 class="widget-title">게시물의 나라 이름</h4>
+                            <ul>
+                                <li class="cat-item cat-item-2"><a href="">{{ post.country }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-boxed.max.offset -->
+
+        <div class="colophon wigetized hidden-print">
+            <div class="container-boxed max">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div id="text-2" class="widget widget_text">
+                            <h4 class="widget-title">Jobmonster</h4>
+                            <div class="textwidget">Donec elementum tellus vel magna bibendum, et fringilla metus tristique. Vestibulum cursus venenatis lacus, vel eleifend lectus blandit a.</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="text-3" class="widget widget_text">
+                            <h4 class="widget-title">Contact Us</h4>
+                            <div class="textwidget">
+                                <p>JobMonster Inc.
+                                    <br> 54/29 West 21st Street, New York, 10010, USA
+                                    <br> contact@jobmonster.com
+                                    <br> http://jobmonster.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="noo_mailchimp_widget-2" class="widget mailchimp-widget">
+                            <h4 class="widget-title">NEWSLETTER</h4>
+                            <form class="mc-subscribe-form">
+
+                                <label for="email">Fusce magna tortor, posuere a condimentum ac, vehicula sit amet lorem.</label>
+
+                                <input type="hidden" name="mc_list_id" value="37e85c287f">
+                                <input type="hidden" name="action" value="noo_mc_subscribe">
+                                <input type="hidden" id="nonce" name="nonce" value="6cf47d6a21">
+                                <input type="hidden" name="_wp_http_referer" value="/jobmonster/career-fair-2015-over-500-jobs-from-great-employer/"> </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-boxed -->
+        </div>
+        <!-- /.colophon.wigetized -->
+
+
+        <footer class="colophon site-info hidden-print">
+            <div class="container-full">
+                <div class="footer-more">
+                    <div class="container-boxed">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="noo-bottom-bar-content">
+                                    © 2014 Jobmonster. Designed with
+                                    <i> </i> by NooTheme </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-boxed -->
+        </footer>
+        <!-- /.colophon.site-info -->
+    </div>
+    <!-- /#top.site -->
+    <div class="memberModalLogin modal fade" tabindex="-1" role="dialog" aria-labelledby="565dbad72eca4_memberModalLoginLabel" aria-hidden="true">
+        <div class="modal-dialog modal-member">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="565dbad72eca4_memberModalLoginLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group row login-socical">
+                        <div class="col-sm-9 col-sm-offset-3">
+
+                            <div class="button_socical fb">
+                                <i data-id="565dbad72ef5b" id="565dbad72ef5b" class="fa fa-facebook-square"></i>
+                                <em data-id="565dbad72ef5b" class="fa-facebook-square">Login with Facebook</em>
+                            </div>
+
+                            <div class="button_socical gg">
+                                <i data-id="565dbad72efa9" id="i_565dbad72efa9" class="fa fa-google-plus"></i>
+                                <em data-id="565dbad72efa9" id="565dbad72efa9" class="fa-google-plus">Login with Google</em>
+                            </div>
+                            <div class="button_socical linkedin">
+                                <i data-id="565dbad72eff1" id="565dbad72eff1" class="fa fa-linkedin-square"></i>
+                                <em data-id="565dbad72eff1" class="fa-linkedin-square">Login with LinkedIn</em>
+                            </div>
+                        </div>
+                    </div>
+                    <form style="max-width: 600px; margin: auto" class="noo-ajax-login-form form-horizontal" action="http://wp.nootheme.com/jobmonster/member/">
+                        <div style="display: none">
+                            <input type="hidden" name="action" value="noo_ajax_login">
+                            <input type="hidden" class="security" name="security" value="e7207eee0d">
+                        </div>
+                        <div class="form-group text-center noo-ajax-result" style="display: none"></div>
+
+                        <div class="form-group row">
+                            <label for="565dbad72eec1_log" class="col-sm-3 control-label">
+                                Username</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="log form-control" id="565dbad72eec1_log" name="log" required="" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="565dbad72eec1_pwd" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" id="565dbad72eec1_pwd" class="pwd form-control" required="" value="" name="pwd" placeholder="Password">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <div class="checkbox">
+                                    <div class="form-control-flat">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="565dbad72eec1_rememberme" class="rememberme" name="rememberme" value="forever"><i></i> Remember Me</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions form-group text-center">
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                            <div class="login-form-links">
+                                <span><a href="http://wp.nootheme.com/jobmonster/member/lost-password/"><i class="fa fa-question-circle"></i> Forgot Password?</a></span>
+                                <span>Don't have an account yet? <a href="http://wp.nootheme.com/jobmonster/member/" class="member-register-link">Register Now <i class="fa fa-long-arrow-right"></i></a></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="memberModalRegister modal fade" tabindex="-1" role="dialog" aria-labelledby="565dbad72fd54_memberModalRegisterLabel" aria-hidden="true">
+        <div class="modal-dialog modal-member">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="565dbad72fd54_memberModalRegisterLabel">Sign Up</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="noo-ajax-register-form form-horizontal" action="http://wp.nootheme.com/jobmonster/member/">
+                        <div style="display: none">
+                            <input type="hidden" class="redirect_to" name="redirect_to" value="">
+                            <input type="hidden" name="action" value="noo_ajax_register">
+                            <input type="hidden" class="security" name="security" value="f4819e7a88">
+                        </div>
+                        <div class="form-group text-center noo-ajax-result" style="display: none"></div>
+                        <div class="form-group row user_login_container">
+                            <label for="565dbad72fec7_user_login" class="col-sm-3 control-label">Username</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="user_login form-control" id="565dbad72fec7_user_login" name="user_login" required="" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="565dbad72fec7_user_email" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="user_email form-control" id="565dbad72fec7_user_email" name="user_email" required="" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="565dbad72fec7_user_password" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" id="565dbad72fec7_user_password" class="user_password form-control" required="" value="" name="user_password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="565dbad72fec7_cuser_password" class="col-sm-3 control-label">Retype your password</label>
+                            <div class="col-sm-9">
+                                <input type="password" id="565dbad72fec7_cuser_password" class="cuser_password form-control" required="" value="" name="cuser_password" placeholder="Repeat password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">You are</label>
+                            <div class="col-sm-9">
+                                <div class="form-control-flat">
+                                    <select class="user_role" name="user_role" required="">
+                                        <option value="">-Select-</option>
+                                        <option value="employer">I'm an employer looking to hire</option>
+                                        <option value="candidate">I'm a candidate looking for a job</option>
+                                    </select>
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3" style="margin-top: 3px;text-align: right;min-width: 130px;">
+                                <img class="security_code" data-security-code="3a562" src="./etc/noo-captcha.php" alt="http://wp.nootheme.com/jobmonster/wp-content/themes/noo-jobmonster/framework/functions/noo-captcha.php?code=3a562">
+                            </div>
+                            <div class="col-sm-8">
+                                <input class="form-control security_input" type="text" name="noo_captcha" placeholder="Enter the text you see" required="">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="checkbox account-reg-term">
+                                <div class="form-control-flat">
+                                    <label class="checkbox">
+                                        <input class="account_reg_term" type="checkbox" title="Please agree with the term"><i></i> I agree with the <a href="http://wp.nootheme.com/jobmonster/sample-page/">Terms of use</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="memberModalRegisterSocial modal fade" tabindex="-1" role="dialog" aria-labelledby="565dbad73027d_memberModalRegisterLabel" aria-hidden="true">
+        <div class="modal-dialog modal-member">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="565dbad73027d_memberModalRegisterLabel">Sign Up</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="noo-ajax-register-form form-horizontal" action="http://wp.nootheme.com/jobmonster/member/">
+                        <div style="display: none">
+                            <input type="hidden" class="redirect_to" name="redirect_to" value="">
+                            <input type="hidden" name="action" value="noo_ajax_register">
+                            <input type="hidden" name="user_login">
+                            <input type="hidden" name="user_email">
+                            <input type="hidden" name="user_password">
+                            <input type="hidden" name="cuser_password">
+                            <input type="hidden" class="security" name="security" value="f4819e7a88">
+                        </div>
+                        <div class="form-group text-center noo-ajax-result" style="display: none"></div>
+                        <h4 class="register-heading"></h4>
+                        <strong class="register-text">Please let us know who you are to finish the registration</strong>
+                        <br>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-sm-9">
+                                <div class="form-control-flat">
+                                    <label class="radio" for="565dbad7303aa_user_role_1">
+                                        <input id="565dbad7303aa_user_role_1" type="radio" name="user_role" value="employer" checked=""><i></i>I'm an employer looking to hire</label>
+                                    <label class="radio" for="565dbad7303aa_user_role_2">
+                                        <input id="565dbad7303aa_user_role_2" type="radio" name="user_role" value="candidate" checked=""><i></i>I'm a candidate looking for a job</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <iframe name="oauth2relay614489104" id="oauth2relay614489104" src="./etc/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe>
+    <iframe style="position: absolute; width: 1px; height: 1px; left: -9999px;" id="ssIFrame_google" sandbox="allow-scripts allow-same-origin" src="./etc/iframe.html"></iframe>
+    <div id="fb-root" class=" fb_reset">
+        <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+            <div>
+                <iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_http" src="./etc/TlA_zCeMkxl.html" style="border: none;"></iframe>
+                <iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_https" src="./etc/TlA_zCeMkxl(1).html" style="border: none;"></iframe>
+            </div>
+        </div>
+        <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+            <div>
+                <iframe name="f14299924" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" src="./etc/ping.html" style="display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock content %}
